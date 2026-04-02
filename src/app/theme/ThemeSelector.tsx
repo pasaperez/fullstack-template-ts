@@ -1,0 +1,116 @@
+'use client';
+
+import { useTheme } from '@app/providers/themeContext';
+import type { ThemeDefinition, ThemeId } from '@app/theme/themes';
+import type { ReactElement } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+
+const modeLabels = { dark: 'Dark', light: 'Light' } as const;
+
+export function shouldCloseThemeSelectorFromKey(key: string): boolean {
+    return key === 'Escape';
+}
+
+export function shouldCloseThemeSelectorFromPointer(container: HTMLDivElement | null, target: EventTarget | null): boolean {
+    return container !== null && target instanceof Node && !container.contains(target);
+}
+
+function ThemeOption(
+    { isActive, onSelect, theme }: { isActive: boolean; onSelect: (themeId: ThemeId) => void; theme: ThemeDefinition; }
+): ReactElement {
+    return (
+        <button
+            aria-pressed={isActive}
+            className={`theme-switcher__option${isActive ? ' theme-switcher__option--active' : ''}`}
+            onClick={() => onSelect(theme.id)}
+            type='button'
+        >
+            <div aria-hidden='true' className='theme-switcher__swatches'>
+                {theme.preview.map((color: string, index: number) => (
+                    <span className='theme-switcher__swatch' key={`${theme.id}-${index}`} style={{ backgroundColor: color }} />
+                ))}
+            </div>
+            <div className='theme-switcher__meta'>
+                <span className='theme-switcher__name'>{theme.name}</span>
+                <span className='theme-switcher__mode'>{modeLabels[theme.mode]}</span>
+            </div>
+        </button>
+    );
+}
+
+export function ThemeSelector(): ReactElement {
+    const { activeTheme, selectTheme, themes } = useTheme();
+    const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+    const panelId: string = useId();
+    const selectorReference = useRef<HTMLDivElement>(null);
+    const groupedThemes = {
+        light: themes.filter((theme: ThemeDefinition) => theme.mode === 'light'),
+        dark: themes.filter((theme: ThemeDefinition) => theme.mode === 'dark')
+    } as const;
+
+    useEffect((): (() => void) | undefined => {
+        if (!isSelectorOpen) {
+            return undefined;
+        }
+
+        const handleWindowKeyDown = (event: KeyboardEvent): void => {
+            if (shouldCloseThemeSelectorFromKey(event.key)) {
+                setIsSelectorOpen(false);
+            }
+        };
+        const handlePointerDown = (event: PointerEvent): void => {
+            if (shouldCloseThemeSelectorFromPointer(selectorReference.current, event.target)) {
+                setIsSelectorOpen(false);
+            }
+        };
+
+        window.addEventListener('keydown', handleWindowKeyDown);
+        window.addEventListener('pointerdown', handlePointerDown);
+
+        return (): void => {
+            window.removeEventListener('keydown', handleWindowKeyDown);
+            window.removeEventListener('pointerdown', handlePointerDown);
+        };
+    }, [isSelectorOpen]);
+
+    function handleThemeSelection(themeId: ThemeId): void {
+        selectTheme(themeId);
+        setIsSelectorOpen(false);
+    }
+
+    return (
+        <div className='theme-switcher' ref={selectorReference}>
+            <button
+                aria-controls={isSelectorOpen ? panelId : undefined}
+                aria-expanded={isSelectorOpen}
+                className='theme-switcher__trigger'
+                onClick={() => setIsSelectorOpen((currentValue: boolean) => !currentValue)}
+                type='button'
+            >
+                <span className='theme-switcher__trigger-label'>Theme</span>
+                <span className='theme-switcher__trigger-current'>{activeTheme.name}</span>
+            </button>
+            {isSelectorOpen
+                ? (
+                    <div aria-label='Theme palette' className='theme-switcher__panel' id={panelId} role='group'>
+                        {Object.entries(groupedThemes).map(([mode, modeThemes]: [string, readonly ThemeDefinition[]]) => (
+                            <section className='theme-switcher__section' key={mode}>
+                                <h2 className='theme-switcher__section-title'>{modeLabels[mode as keyof typeof modeLabels]}</h2>
+                                <div className='theme-switcher__grid'>
+                                    {modeThemes.map((theme: ThemeDefinition) => (
+                                        <ThemeOption
+                                            isActive={theme.id === activeTheme.id}
+                                            key={theme.id}
+                                            onSelect={handleThemeSelection}
+                                            theme={theme}
+                                        />
+                                    ))}
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                )
+                : null}
+        </div>
+    );
+}
