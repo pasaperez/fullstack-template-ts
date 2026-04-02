@@ -1,0 +1,101 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" style="overflow:hidden">
+  <title id="title">Fullstack template banner</title>
+  <desc id="desc">Banner for the fullstack TypeScript template with Next App Router, modular boundaries, and a themed users interface.</desc>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="32" x2="1216" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FBF7"/>
+      <stop offset="0.55" stop-color="#EDF5FB"/>
+      <stop offset="1" stop-color="#FFF6EC"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="706" y1="88" x2="1184" y2="550" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F4F9F6"/>
+    </linearGradient>
+    <linearGradient id="themeChip" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#14976B"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="662" y="58" width="570" height="548" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#17342614"/>
+    </filter>
+    <clipPath id="leftClip">
+      <rect x="64" y="72" width="560" height="520" rx="0"/>
+    </clipPath>
+    <clipPath id="panelClip">
+      <rect x="706" y="88" width="492" height="460" rx="32"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1280" height="640" rx="32" fill="url(#bg)"/>
+  <circle cx="1106" cy="108" r="104" fill="#DCF2E7"/>
+  <circle cx="1202" cy="196" r="64" fill="#DDE9FF"/>
+  <circle cx="140" cy="114" r="84" fill="#FFEED0"/>
+  <path d="M56 530C182 454 308 406 464 390C598 376 724 402 836 456C950 510 1084 548 1224 532" stroke="#D7E8DF" stroke-width="3" stroke-linecap="round"/>
+
+  <g clip-path="url(#leftClip)">
+    <rect x="92" y="96" width="194" height="38" rx="19" fill="#E7F7EF"/>
+    <text x="189" y="121" fill="#0F5A3F" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Next App Router</text>
+
+    <text x="92" y="198" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="700">Fullstack Template</text>
+    <text x="92" y="252" fill="#0F9A6A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">TypeScript • Bun-first • Modular boundaries</text>
+
+    <text x="92" y="308" fill="#46566E" font-family="Arial, Helvetica, sans-serif" font-size="18">Server composition, validated actions, and a feature structure</text>
+    <text x="92" y="338" fill="#46566E" font-family="Arial, Helvetica, sans-serif" font-size="18">that stays runnable without needing external services.</text>
+
+    <rect x="92" y="404" width="160" height="48" rx="24" fill="#0F172A"/>
+    <text x="172" y="435" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">users flow</text>
+    <rect x="266" y="404" width="166" height="48" rx="24" fill="#FFFFFF" stroke="#D5E3DB" stroke-width="2"/>
+    <text x="349" y="435" fill="#132238" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" text-anchor="middle">100% tests</text>
+
+    <rect x="92" y="484" width="122" height="92" rx="20" fill="#FFFFFF" stroke="#D9E6DE"/>
+    <rect x="228" y="484" width="122" height="92" rx="20" fill="#FFFFFF" stroke="#D9E6DE"/>
+    <rect x="364" y="484" width="122" height="92" rx="20" fill="#FFFFFF" stroke="#D9E6DE"/>
+
+    <text x="116" y="512" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Layers</text>
+    <text x="153" y="540" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">App</text>
+    <text x="153" y="560" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Module</text>
+
+    <text x="252" y="512" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Forms</text>
+    <text x="289" y="540" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Zod</text>
+    <text x="289" y="560" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">RHF</text>
+
+    <text x="388" y="512" fill="#6B7280" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Quality</text>
+    <text x="425" y="540" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">ESLint</text>
+    <text x="425" y="560" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Vitest</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="706" y="88" width="492" height="460" rx="32" fill="url(#panel)"/>
+    <g clip-path="url(#panelClip)">
+      <rect x="738" y="122" width="110" height="388" rx="28" fill="#13241E"/>
+
+      <rect x="766" y="156" width="54" height="12" rx="6" fill="#A7D9C1"/>
+      <rect x="766" y="194" width="54" height="58" rx="18" fill="#1B392F"/>
+      <rect x="781" y="210" width="24" height="26" rx="8" fill="#15A26D"/>
+      <rect x="766" y="278" width="58" height="10" rx="5" fill="#6C8A7D"/>
+      <rect x="766" y="306" width="58" height="10" rx="5" fill="#6C8A7D"/>
+      <rect x="766" y="334" width="58" height="10" rx="5" fill="#6C8A7D"/>
+      <rect x="766" y="406" width="58" height="10" rx="5" fill="#A7D9C1"/>
+      <rect x="766" y="434" width="58" height="10" rx="5" fill="#6C8A7D"/>
+
+      <rect x="882" y="122" width="270" height="52" rx="20" fill="#FFFFFF"/>
+      <rect x="908" y="140" width="94" height="12" rx="6" fill="#CBD5E1"/>
+      <rect x="1060" y="134" width="80" height="24" rx="12" fill="url(#themeChip)"/>
+      <text x="1100" y="150" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Theme</text>
+
+      <rect x="882" y="192" width="270" height="144" rx="24" fill="#F7FBF9"/>
+      <text x="908" y="230" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Users</text>
+      <text x="908" y="258" fill="#637086" font-family="Arial, Helvetica, sans-serif" font-size="15">Server-loaded page with</text>
+      <text x="908" y="282" fill="#637086" font-family="Arial, Helvetica, sans-serif" font-size="15">client interactivity</text>
+      <rect x="908" y="298" width="206" height="14" rx="7" fill="#D9E7E0"/>
+      <rect x="908" y="322" width="146" height="12" rx="6" fill="#E6EFEB"/>
+
+      <rect x="882" y="356" width="126" height="148" rx="24" fill="#F0FBF5"/>
+      <rect x="1026" y="356" width="126" height="148" rx="24" fill="#F2F7FF"/>
+      <rect x="909" y="388" width="72" height="70" rx="20" fill="#D9F5E7"/>
+      <rect x="1053" y="388" width="72" height="70" rx="20" fill="#DDE8FF"/>
+      <text x="945" y="484" fill="#116347" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Form/actions</text>
+      <text x="1089" y="484" fill="#2552D6" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Status UI</text>
+    </g>
+  </g>
+</svg>
