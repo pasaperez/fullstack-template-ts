@@ -80,8 +80,7 @@ flowchart LR
 <details open>
 <summary><strong>English</strong></summary>
 
-> [!NOTE]
-> Bun is the primary package manager and local runtime for this repository. npm remains a fallback when Bun is unavailable.
+> **Note:** Bun is the primary package manager and local runtime for this repository. npm remains a fallback when Bun is unavailable.
 
 Production-oriented fullstack template built with Next.js App Router, strict TypeScript, Bun, and explicit module boundaries.
 The current template ships one complete `users` flow running entirely inside the repository through server-rendered page loading, server actions, and an in-memory repository.
@@ -272,8 +271,7 @@ Initial page data is loaded on the server, and create/update/delete flows go thr
 
 ### Environment
 
-> [!TIP]
-> `.env.example` exists only to document that the default setup requires no environment variables.
+> **Tip:** `.env.example` exists only to document that the default setup requires no environment variables.
 
 ### State And Effects
 
@@ -355,8 +353,7 @@ Test-only resets, fixtures, mocks, and similar helpers should live under `tests/
 <details>
 <summary><strong>Español</strong></summary>
 
-> [!NOTE]
-> Bun es el package manager y runtime local principal de este repositorio. npm queda como fallback cuando Bun no está disponible.
+> **Nota:** Bun es el package manager y runtime local principal de este repositorio. npm queda como fallback cuando Bun no está disponible.
 
 Template fullstack orientado a producción con Next.js App Router, TypeScript estricto, Bun y límites modulares explícitos.
 La versión actual trae un flujo completo de `users` que corre íntegramente dentro del repositorio mediante carga server-side, server actions y un repositorio in-memory.
@@ -547,8 +544,7 @@ La carga inicial de la página ocurre en servidor, y los flujos de crear/editar/
 
 ### Entorno
 
-> [!TIP]
-> `.env.example` existe solo para documentar que la configuración por defecto no requiere variables de entorno.
+> **Sugerencia:** `.env.example` existe solo para documentar que la configuración por defecto no requiere variables de entorno.
 
 ### Estado Y Efectos
 
