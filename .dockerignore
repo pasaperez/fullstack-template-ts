@@ -1,0 +1,11 @@
+.git
+.github
+.next
+coverage
+docs
+node_modules
+tests
+AGENTS.md
+CLAUDE.md
+README.md
+tsconfig.check.tsbuildinfo

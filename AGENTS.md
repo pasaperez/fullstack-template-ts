@@ -16,6 +16,7 @@ Self-contained Next.js fullstack template with strict TypeScript, App Router, ma
 - Zod
 - React Hook Form
 - Radix Colors
+- Docker
 - Vitest
 - React Testing Library
 - ESLint
@@ -35,6 +36,11 @@ Preferred commands:
 - `bun run format`
 - `bun run format:write`
 
+Container commands:
+
+- `docker build -t fullstack-template-ts .`
+- `docker run --rm -p 3000:3000 fullstack-template-ts`
+
 Fallback commands when Bun is unavailable:
 
 - `npm install`
@@ -52,6 +58,13 @@ Default setup:
 - No environment variables are required.
 - `.env.example` only documents that default state.
 - Bun is the primary package manager and local runtime for this repository. Keep npm commands as fallback only.
+
+Container packaging preference:
+
+- Prefer multi-stage Docker images that use Bun for dependency installation and build steps.
+- Use Next.js `standalone` output for production packaging so runtime images stay minimal.
+- Default runtime container is Node.js 20 Alpine because the standalone server entrypoint is Node-based.
+- Production containers should bind `HOSTNAME=0.0.0.0` and expose port `3000` unless the deployment platform injects them.
 
 ## Top-level structure
 
@@ -182,6 +195,7 @@ If coverage is affected, keep:
 
 Coverage is enforced at `100%` for the included source files.
 Coverage exclusions must stay narrow and only target pure type-only contracts when that is the intentional repository policy.
+
 - Keep test-only resets, fixtures, mocks, and similar helpers out of `src/**`. Put that support in `tests/**` or test setup unless it is a real runtime dependency boundary.
 
 ## Code conventions

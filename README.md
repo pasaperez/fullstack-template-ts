@@ -30,8 +30,8 @@
   <a href="#espanol">Español</a>
 </p>
 
-| Focus | Runtime | Example flow | Quality gates |
-| --- | --- | --- | --- |
+| Focus                        | Runtime                 | Example flow                                                       | Quality gates                                               |
+|------------------------------|-------------------------|--------------------------------------------------------------------|-------------------------------------------------------------|
 | Next.js fullstack foundation | Bun-first, npm fallback | `/users` CRUD with server-rendered initial data and server actions | ESLint, dependency-cruiser, Vitest, dprint, `100%` coverage |
 
 ## Architecture At A Glance
@@ -76,6 +76,7 @@ flowchart LR
 </table>
 
 <a id="english"></a>
+
 <details open>
 <summary><strong>English</strong></summary>
 
@@ -87,12 +88,12 @@ The current template ships one complete `users` flow running entirely inside the
 
 ### Quick Facts
 
-| Area | Details |
-| --- | --- |
-| Repository goal | Keep a real fullstack baseline runnable without external services |
-| Architectural boundary | `app` -> `composition` -> `modules` -> `shared` |
-| Example feature | `users` CRUD rendered on the server and completed through server actions |
-| UI foundation | Responsive shell, theme selector, shared primitives, status pages |
+| Area                   | Details                                                                  |
+|------------------------|--------------------------------------------------------------------------|
+| Repository goal        | Keep a real fullstack baseline runnable without external services        |
+| Architectural boundary | `app` -> `composition` -> `modules` -> `shared`                          |
+| Example feature        | `users` CRUD rendered on the server and completed through server actions |
+| UI foundation          | Responsive shell, theme selector, shared primitives, status pages        |
 
 ### What Is Included
 
@@ -105,6 +106,7 @@ The current template ships one complete `users` flow running entirely inside the
 - Responsive app shell with sidebar navigation, theme selector, and shared UI primitives
 - Route-level metadata, accessible status pages, skip link, and reduced-motion-friendly interactions
 - Bun-first local workflow with npm fallback only when Bun is unavailable
+- Multi-stage Docker packaging with Bun-based build steps and Next.js standalone runtime output
 - Radix Colors theme foundation
 - React Hook Form and Zod for forms and validation
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, React Testing Library, and dprint
@@ -113,8 +115,8 @@ The current template ships one complete `users` flow running entirely inside the
 
 ### Stack
 
-| Runtime | UI | Validation | Quality |
-| --- | --- | --- | --- |
+| Runtime                                                | UI             | Validation               | Quality                                                                                                 |
+|--------------------------------------------------------|----------------|--------------------------|---------------------------------------------------------------------------------------------------------|
 | `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Structure
@@ -236,24 +238,35 @@ bun run dev
 
 Available scripts:
 
-| Purpose | Bun | npm fallback |
-| --- | --- | --- |
-| Install | `bun install` | `npm install` |
-| Dev server | `bun run dev` | `npm run dev` |
-| Production build | `bun run build` | `npm run build` |
-| Production server | `bun run start` | `npm run start` |
-| Tests | `bun run test` | `npm run test` |
-| Coverage | `bun run test:coverage` | `npm run test:coverage` |
-| Lint | `bun run lint` | `npm run lint` |
-| Format check | `bun run format` | `npm run format` |
-| Format write | `bun run format:write` | `npm run format:write` |
+| Purpose           | Bun                     | npm fallback            |
+|-------------------|-------------------------|-------------------------|
+| Install           | `bun install`           | `npm install`           |
+| Dev server        | `bun run dev`           | `npm run dev`           |
+| Production build  | `bun run build`         | `npm run build`         |
+| Production server | `bun run start`         | `npm run start`         |
+| Tests             | `bun run test`          | `npm run test`          |
+| Coverage          | `bun run test:coverage` | `npm run test:coverage` |
+| Lint              | `bun run lint`          | `npm run lint`          |
+| Format check      | `bun run format`        | `npm run format`        |
+| Format write      | `bun run format:write`  | `npm run format:write`  |
+
+### Docker
+
+The template includes a multi-stage Docker build that uses Bun for dependency installation and build steps, then runs the Next.js standalone server on Node.js.
+
+```bash
+docker build -t fullstack-template-ts .
+docker run --rm -p 3000:3000 fullstack-template-ts
+```
+
+The container binds `0.0.0.0:3000` by default.
 
 ### Route Surface
 
-| Route | Behavior |
-| --- | --- |
-| `/` | Redirects to `/users` |
-| `/users` | Users CRUD page |
+| Route    | Behavior              |
+|----------|-----------------------|
+| `/`      | Redirects to `/users` |
+| `/users` | Users CRUD page       |
 
 Initial page data is loaded on the server, and create/update/delete flows go through Next.js server actions inside the same repository.
 
@@ -338,6 +351,7 @@ Test-only resets, fixtures, mocks, and similar helpers should live under `tests/
 </details>
 
 <a id="espanol"></a>
+
 <details>
 <summary><strong>Español</strong></summary>
 
@@ -349,12 +363,12 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 
 ### Resumen Rápido
 
-| Área | Detalle |
-| --- | --- |
-| Objetivo del repositorio | Mantener una base fullstack real ejecutable sin servicios externos |
-| Límite arquitectónico | `app` -> `composition` -> `modules` -> `shared` |
-| Feature de ejemplo | CRUD de `users` renderizado en servidor y completado con server actions |
-| Base de UI | Shell responsive, selector de tema, primitivas compartidas y páginas de estado |
+| Área                     | Detalle                                                                        |
+|--------------------------|--------------------------------------------------------------------------------|
+| Objetivo del repositorio | Mantener una base fullstack real ejecutable sin servicios externos             |
+| Límite arquitectónico    | `app` -> `composition` -> `modules` -> `shared`                                |
+| Feature de ejemplo       | CRUD de `users` renderizado en servidor y completado con server actions        |
+| Base de UI               | Shell responsive, selector de tema, primitivas compartidas y páginas de estado |
 
 ### Qué Incluye
 
@@ -367,6 +381,7 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 - App shell responsive con navegación lateral, selector de tema y primitivas UI compartidas
 - Metadata por layout y por ruta, páginas de estado accesibles, skip link e interacciones compatibles con reduced motion
 - Flujo local Bun-first con fallback a npm solo cuando Bun no está disponible
+- Empaquetado Docker multi-stage con build en Bun y runtime Next.js standalone
 - Base visual con Radix Colors
 - React Hook Form y Zod para formularios y validación
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, React Testing Library y dprint
@@ -375,8 +390,8 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 
 ### Stack
 
-| Runtime | UI | Validación | Calidad |
-| --- | --- | --- | --- |
+| Runtime                                                | UI             | Validación               | Calidad                                                                                                 |
+|--------------------------------------------------------|----------------|--------------------------|---------------------------------------------------------------------------------------------------------|
 | `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Estructura
@@ -498,23 +513,34 @@ bun run dev
 
 Scripts disponibles:
 
-| Propósito | Bun | npm fallback |
-| --- | --- | --- |
-| Instalar | `bun install` | `npm install` |
-| Dev server | `bun run dev` | `npm run dev` |
-| Build de producción | `bun run build` | `npm run build` |
-| Servidor de producción | `bun run start` | `npm run start` |
-| Tests | `bun run test` | `npm run test` |
-| Cobertura | `bun run test:coverage` | `npm run test:coverage` |
-| Lint | `bun run lint` | `npm run lint` |
-| Check de formato | `bun run format` | `npm run format` |
-| Escritura de formato | `bun run format:write` | `npm run format:write` |
+| Propósito              | Bun                     | npm fallback            |
+|------------------------|-------------------------|-------------------------|
+| Instalar               | `bun install`           | `npm install`           |
+| Dev server             | `bun run dev`           | `npm run dev`           |
+| Build de producción    | `bun run build`         | `npm run build`         |
+| Servidor de producción | `bun run start`         | `npm run start`         |
+| Tests                  | `bun run test`          | `npm run test`          |
+| Cobertura              | `bun run test:coverage` | `npm run test:coverage` |
+| Lint                   | `bun run lint`          | `npm run lint`          |
+| Check de formato       | `bun run format`        | `npm run format`        |
+| Escritura de formato   | `bun run format:write`  | `npm run format:write`  |
+
+### Docker
+
+El template incluye un build Docker multi-stage que usa Bun para instalar dependencias y compilar, y luego ejecuta el servidor standalone de Next.js sobre Node.js.
+
+```bash
+docker build -t fullstack-template-ts .
+docker run --rm -p 3000:3000 fullstack-template-ts
+```
+
+El contenedor expone `0.0.0.0:3000` por defecto.
 
 ### Superficie De Rutas
 
-| Ruta | Comportamiento |
-| --- | --- |
-| `/` | Redirige a `/users` |
+| Ruta     | Comportamiento          |
+|----------|-------------------------|
+| `/`      | Redirige a `/users`     |
 | `/users` | Página CRUD de usuarios |
 
 La carga inicial de la página ocurre en servidor, y los flujos de crear/editar/eliminar pasan por server actions de Next.js dentro del mismo repositorio.
