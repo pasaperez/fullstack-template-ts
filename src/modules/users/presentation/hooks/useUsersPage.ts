@@ -26,7 +26,7 @@ export interface UsersPageViewModel {
     onDelete: (user: User) => Promise<void>;
     onEdit: (user: User) => void;
     onOpenCreate: () => void;
-    onSubmit: (event?: BaseSyntheticEvent) => Promise<void>;
+    onSubmit: (event?: BaseSyntheticEvent) => Promise<unknown>;
     recordsLabel: string;
     submitButtonLabel?: string | undefined;
     submitErrorMessage?: string | undefined;

@@ -8,7 +8,7 @@ Self-contained Next.js fullstack template with strict TypeScript, App Router, ma
 
 ## Stack and commands
 
-Next.js App Router · React · TypeScript (strict) · Bun · Node.js 20+ · Zod · React Hook Form · Radix Colors · Docker · Vitest · React Testing Library · ESLint · dependency-cruiser · eslint-plugin-boundaries · dprint.
+Next.js App Router · React · TypeScript (strict) · Bun · Node.js 24+ · Zod · React Hook Form · Radix Colors · Docker · Vitest · React Testing Library · ESLint · dependency-cruiser · eslint-plugin-boundaries · dprint.
 
 - `bun install` · `bun run dev` · `bun run build` · `bun run start`
 - `bun run lint` (ESLint + dependency-cruiser + `scripts/dead-code.mjs`) · `bun run test` · `bun run test:coverage`

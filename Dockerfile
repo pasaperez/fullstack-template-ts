@@ -1,10 +1,10 @@
-FROM oven/bun:1.3.10-alpine AS deps
+FROM oven/bun:1.4.4-alpine AS deps
 WORKDIR /app
 
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
-FROM oven/bun:1.3.10-alpine AS build
+FROM oven/bun:1.4.4-alpine AS build
 WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -15,7 +15,7 @@ COPY . .
 RUN mkdir -p public
 RUN bun run build
 
-FROM node:20-alpine AS runtime
+FROM node:26-alpine AS runtime
 WORKDIR /app
 
 ENV NODE_ENV=production

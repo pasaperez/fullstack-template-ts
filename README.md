@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Bun-1.3%2B-111111?logo=bun&logoColor=F9F1E1" alt="Bun 1.3+" />
-  <img src="https://img.shields.io/badge/Node-20%2B-339933?logo=node.js&logoColor=white" alt="Node 20+" />
+  <img src="https://img.shields.io/badge/Node-24%2B-339933?logo=node.js&logoColor=white" alt="Node 24+" />
   <img src="https://img.shields.io/badge/Next.js-16-111111?logo=nextdotjs&logoColor=white" alt="Next.js 16" />
   <img src="https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white" alt="React 19" />
   <img src="https://img.shields.io/badge/Coverage-100%25-0A7B53" alt="Coverage 100%" />
@@ -117,7 +117,7 @@ The current template ships one complete `users` flow running entirely inside the
 
 | Runtime                                                | UI             | Validation               | Quality                                                                                                 |
 | ------------------------------------------------------ | -------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
-| `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
+| `Bun`, `Node.js 24+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Structure
 
@@ -391,7 +391,7 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 
 | Runtime                                                | UI             | Validación               | Calidad                                                                                                 |
 | ------------------------------------------------------ | -------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
-| `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
+| `Bun`, `Node.js 24+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Estructura
 

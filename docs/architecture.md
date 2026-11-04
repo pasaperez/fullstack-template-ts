@@ -83,5 +83,5 @@ If architecture rules change, update the enforcement config and this file togeth
 
 - Prefer multi-stage Docker images that use Bun for dependency installation and build steps.
 - Use Next.js `standalone` output for production packaging so runtime images stay minimal.
-- Default runtime container is Node.js 20 Alpine because the standalone server entrypoint is Node-based.
+- Default runtime container is Node.js 26 Alpine because the standalone server entrypoint is Node-based.
 - Production containers should bind `HOSTNAME=0.0.0.0` and expose port `3000` unless the deployment platform injects them.
