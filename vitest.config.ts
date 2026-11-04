@@ -18,6 +18,7 @@ export default defineConfig({
     },
     test: {
         environment: 'jsdom',
+        execArgv: ['--no-experimental-webstorage'],
         setupFiles: ['./tests/setup/vitest.setup.ts'],
         include: ['tests/**/*.spec.ts', 'tests/**/*.spec.tsx'],
         coverage: {
