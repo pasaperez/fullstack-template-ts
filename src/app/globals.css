@@ -650,11 +650,6 @@ input {
     color: var(--danger-ink);
 }
 
-.inline-message--warning {
-    background: var(--warning-surface);
-    color: var(--warning-ink);
-}
-
 .toolbar__count {
     padding: 10px 14px;
     border-radius: 999px;

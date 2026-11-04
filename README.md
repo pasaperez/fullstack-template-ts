@@ -31,7 +31,7 @@
 </p>
 
 | Focus                        | Runtime                 | Example flow                                                       | Quality gates                                               |
-|------------------------------|-------------------------|--------------------------------------------------------------------|-------------------------------------------------------------|
+| ---------------------------- | ----------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------- |
 | Next.js fullstack foundation | Bun-first, npm fallback | `/users` CRUD with server-rendered initial data and server actions | ESLint, dependency-cruiser, Vitest, dprint, `100%` coverage |
 
 ## Architecture At A Glance
@@ -88,7 +88,7 @@ The current template ships one complete `users` flow running entirely inside the
 ### Quick Facts
 
 | Area                   | Details                                                                  |
-|------------------------|--------------------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------------------ |
 | Repository goal        | Keep a real fullstack baseline runnable without external services        |
 | Architectural boundary | `app` -> `composition` -> `modules` -> `shared`                          |
 | Example feature        | `users` CRUD rendered on the server and completed through server actions |
@@ -109,13 +109,14 @@ The current template ships one complete `users` flow running entirely inside the
 - Radix Colors theme foundation
 - React Hook Form and Zod for forms and validation
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, React Testing Library, and dprint
+- `scripts/dead-code.mjs` (part of `bun run lint`) fails the build on unused exports, orphan files and unused CSS classes: this template keeps no dead code
 - Type-checked production build plus architectural dependency enforcement
 - Coverage thresholds fixed at `100%` on the included source files
 
 ### Stack
 
 | Runtime                                                | UI             | Validation               | Quality                                                                                                 |
-|--------------------------------------------------------|----------------|--------------------------|---------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------ | -------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Structure
@@ -238,7 +239,7 @@ bun run dev
 Available scripts:
 
 | Purpose           | Bun                     | npm fallback            |
-|-------------------|-------------------------|-------------------------|
+| ----------------- | ----------------------- | ----------------------- |
 | Install           | `bun install`           | `npm install`           |
 | Dev server        | `bun run dev`           | `npm run dev`           |
 | Production build  | `bun run build`         | `npm run build`         |
@@ -263,7 +264,7 @@ The container binds `0.0.0.0:3000` by default.
 ### Route Surface
 
 | Route    | Behavior              |
-|----------|-----------------------|
+| -------- | --------------------- |
 | `/`      | Redirects to `/users` |
 | `/users` | Users CRUD page       |
 
@@ -296,7 +297,7 @@ Initial page data is loaded on the server, and create/update/delete flows go thr
 ### Quality Gates And Enforcement
 
 - `bun run format` uses `dprint`
-- `bun run lint` runs ESLint plus `dependency-cruiser`
+- `bun run lint` runs ESLint, `dependency-cruiser` and the dead-code check (`scripts/dead-code.mjs`)
 - `eslint-plugin-boundaries` and `dependency-cruiser` protect the documented layer rules
 - `bun run build` runs `next build` and `tsc -p tsconfig.check.json --noEmit`
 - architectural or command changes should update the enforcement config and documentation together
@@ -361,7 +362,7 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 ### Resumen Rápido
 
 | Área                     | Detalle                                                                        |
-|--------------------------|--------------------------------------------------------------------------------|
+| ------------------------ | ------------------------------------------------------------------------------ |
 | Objetivo del repositorio | Mantener una base fullstack real ejecutable sin servicios externos             |
 | Límite arquitectónico    | `app` -> `composition` -> `modules` -> `shared`                                |
 | Feature de ejemplo       | CRUD de `users` renderizado en servidor y completado con server actions        |
@@ -382,13 +383,14 @@ La versión actual trae un flujo completo de `users` que corre íntegramente den
 - Base visual con Radix Colors
 - React Hook Form y Zod para formularios y validación
 - ESLint, `eslint-plugin-boundaries`, dependency-cruiser, Vitest, React Testing Library y dprint
+- `scripts/dead-code.mjs` (parte de `bun run lint`) falla ante exports sin uso, archivos huérfanos y clases CSS sin uso: esta plantilla no deja código muerto
 - Build de producción con chequeo de tipos y enforcement arquitectónico de dependencias
 - Thresholds de cobertura fijados en `100%` sobre los archivos fuente incluidos
 
 ### Stack
 
 | Runtime                                                | UI             | Validación               | Calidad                                                                                                 |
-|--------------------------------------------------------|----------------|--------------------------|---------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------ | -------------- | ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `Bun`, `Node.js 20+`, `Next.js App Router`, `React 19` | `Radix Colors` | `Zod`, `React Hook Form` | `Vitest`, `React Testing Library`, `ESLint`, `dependency-cruiser`, `eslint-plugin-boundaries`, `dprint` |
 
 ### Estructura
@@ -511,7 +513,7 @@ bun run dev
 Scripts disponibles:
 
 | Propósito              | Bun                     | npm fallback            |
-|------------------------|-------------------------|-------------------------|
+| ---------------------- | ----------------------- | ----------------------- |
 | Instalar               | `bun install`           | `npm install`           |
 | Dev server             | `bun run dev`           | `npm run dev`           |
 | Build de producción    | `bun run build`         | `npm run build`         |
@@ -536,7 +538,7 @@ El contenedor expone `0.0.0.0:3000` por defecto.
 ### Superficie De Rutas
 
 | Ruta     | Comportamiento          |
-|----------|-------------------------|
+| -------- | ----------------------- |
 | `/`      | Redirige a `/users`     |
 | `/users` | Página CRUD de usuarios |
 
@@ -569,7 +571,7 @@ La carga inicial de la página ocurre en servidor, y los flujos de crear/editar/
 ### Quality Gates Y Enforcement
 
 - `bun run format` usa `dprint`
-- `bun run lint` ejecuta ESLint más `dependency-cruiser`
+- `bun run lint` ejecuta ESLint, `dependency-cruiser` y el chequeo de código muerto (`scripts/dead-code.mjs`)
 - `eslint-plugin-boundaries` y `dependency-cruiser` protegen las reglas de capas documentadas
 - `bun run build` ejecuta `next build` y `tsc -p tsconfig.check.json --noEmit`
 - si cambian reglas arquitectónicas o comandos, deben actualizarse juntos los configs de enforcement y la documentación

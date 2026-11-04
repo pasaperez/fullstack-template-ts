@@ -1,6 +1,6 @@
-import { amber, amberA, amberDark, amberDarkA, blackA, blue, blueA, cyanDark, cyanDarkA, grass, grassA, grassDark, grassDarkA, iris, irisA, irisDark, irisDarkA, jade, jadeA, jadeDark, jadeDarkA, mauve, mauveA, mauveDark, mauveDarkA, olive, oliveA, oliveDark, oliveDarkA, orange, orangeA, orangeDark, orangeDarkA, red, redA, redDark, redDarkA, sage, sageA, sand, sandA, slate, slateA, slateDark, slateDarkA, whiteA } from '@radix-ui/colors';
+import { amberA, amberDarkA, blackA, blue, blueA, cyanDark, cyanDarkA, grass, grassA, grassDark, grassDarkA, iris, irisA, irisDark, irisDarkA, jade, jadeA, jadeDark, jadeDarkA, mauve, mauveA, mauveDark, mauveDarkA, olive, oliveA, oliveDark, oliveDarkA, orange, orangeA, orangeDark, orangeDarkA, red, redA, redDark, redDarkA, sage, sageA, sand, sandA, slate, slateA, slateDark, slateDarkA, whiteA } from '@radix-ui/colors';
 
-export type ThemeMode = 'dark' | 'light';
+type ThemeMode = 'dark' | 'light';
 
 type ColorScale = Record<string, string>;
 
@@ -28,8 +28,6 @@ interface ThemeTokens {
     readonly surfaceBorder: string;
     readonly surfaceStrong: string;
     readonly tableHover: string;
-    readonly warningInk: string;
-    readonly warningSurface: string;
 }
 
 export interface ThemeDefinition {
@@ -53,7 +51,6 @@ interface ThemePaletteDefinition {
     readonly neutral: ColorScale;
     readonly neutralAlpha: ColorScale;
     readonly neutralName: string;
-    readonly warning: ColorScale;
     readonly warningAlpha: ColorScale;
     readonly warningName: string;
 }
@@ -70,7 +67,6 @@ function createThemeTokens(definition: ThemePaletteDefinition): ThemeTokens {
     const neutralAlphaStep = (step: number): string => getColorStep(definition.neutralAlpha, `${definition.neutralName}A${step}`);
     const dangerStep = (step: number): string => getColorStep(definition.danger, `${definition.dangerName}${step}`);
     const dangerAlphaStep = (step: number): string => getColorStep(definition.dangerAlpha, `${definition.dangerName}A${step}`);
-    const warningStep = (step: number): string => getColorStep(definition.warning, `${definition.warningName}${step}`);
     const warningAlphaStep = (step: number): string => getColorStep(definition.warningAlpha, `${definition.warningName}A${step}`);
 
     return {
@@ -96,9 +92,7 @@ function createThemeTokens(definition: ThemePaletteDefinition): ThemeTokens {
         surface: isDark ? neutralStep(2) : neutralStep(1),
         surfaceBorder: neutralStep(isDark ? 6 : 5),
         surfaceStrong: isDark ? neutralStep(3) : neutralStep(2),
-        tableHover: isDark ? whiteA.whiteA2 : blackA.blackA2,
-        warningInk: warningStep(11),
-        warningSurface: warningAlphaStep(isDark ? 5 : 4)
+        tableHover: isDark ? whiteA.whiteA2 : blackA.blackA2
     };
 }
 
@@ -128,7 +122,6 @@ export const themeCatalog = [
         neutral: sage,
         neutralAlpha: sageA,
         neutralName: 'sage',
-        warning: amber,
         warningAlpha: amberA,
         warningName: 'amber'
     }),
@@ -145,7 +138,6 @@ export const themeCatalog = [
         neutral: slate,
         neutralAlpha: slateA,
         neutralName: 'slate',
-        warning: amber,
         warningAlpha: amberA,
         warningName: 'amber'
     }),
@@ -162,7 +154,6 @@ export const themeCatalog = [
         neutral: sand,
         neutralAlpha: sandA,
         neutralName: 'sand',
-        warning: amber,
         warningAlpha: amberA,
         warningName: 'amber'
     }),
@@ -179,7 +170,6 @@ export const themeCatalog = [
         neutral: olive,
         neutralAlpha: oliveA,
         neutralName: 'olive',
-        warning: amber,
         warningAlpha: amberA,
         warningName: 'amber'
     }),
@@ -196,7 +186,6 @@ export const themeCatalog = [
         neutral: mauve,
         neutralAlpha: mauveA,
         neutralName: 'mauve',
-        warning: amber,
         warningAlpha: amberA,
         warningName: 'amber'
     }),
@@ -213,7 +202,6 @@ export const themeCatalog = [
         neutral: slateDark,
         neutralAlpha: slateDarkA,
         neutralName: 'slate',
-        warning: amberDark,
         warningAlpha: amberDarkA,
         warningName: 'amber'
     }),
@@ -230,7 +218,6 @@ export const themeCatalog = [
         neutral: slateDark,
         neutralAlpha: slateDarkA,
         neutralName: 'slate',
-        warning: amberDark,
         warningAlpha: amberDarkA,
         warningName: 'amber'
     }),
@@ -247,7 +234,6 @@ export const themeCatalog = [
         neutral: mauveDark,
         neutralAlpha: mauveDarkA,
         neutralName: 'mauve',
-        warning: amberDark,
         warningAlpha: amberDarkA,
         warningName: 'amber'
     }),
@@ -264,7 +250,6 @@ export const themeCatalog = [
         neutral: oliveDark,
         neutralAlpha: oliveDarkA,
         neutralName: 'olive',
-        warning: amberDark,
         warningAlpha: amberDarkA,
         warningName: 'amber'
     }),
@@ -281,7 +266,6 @@ export const themeCatalog = [
         neutral: mauveDark,
         neutralAlpha: mauveDarkA,
         neutralName: 'mauve',
-        warning: amberDark,
         warningAlpha: amberDarkA,
         warningName: 'amber'
     })

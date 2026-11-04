@@ -4,7 +4,7 @@ export const projectName = 'Fullstack Template TS';
 export const projectSubtitle = 'Scalable Next.js foundation';
 export const navigationDescription = 'Core routes for the fullstack workspace.';
 
-export interface NavigationItem {
+interface NavigationItem {
     readonly description: string;
     readonly href: Route;
     readonly id: string;

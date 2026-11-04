@@ -7,7 +7,7 @@ const nextPlugin = require('@next/eslint-plugin-next');
 const globals = require('globals');
 
 module.exports = [
-    { ignores: ['.next', 'coverage', 'node_modules', '.dependency-cruiser.cjs', 'eslint.config.cjs', 'next-env.d.ts'] },
+    { ignores: ['.next', 'coverage', 'node_modules', '.dependency-cruiser.cjs', 'eslint.config.cjs', 'next-env.d.ts', 'scripts'] },
     js.configs.recommended,
     ...tsPlugin.configs['flat/recommended-type-checked'],
     {

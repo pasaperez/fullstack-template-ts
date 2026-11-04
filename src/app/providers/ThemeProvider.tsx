@@ -48,8 +48,6 @@ function createThemeStyle(theme: ThemeDefinition): ThemeStyle {
         '--surface-border': theme.tokens.surfaceBorder,
         '--surface-strong': theme.tokens.surfaceStrong,
         '--table-hover': theme.tokens.tableHover,
-        '--warning-ink': theme.tokens.warningInk,
-        '--warning-surface': theme.tokens.warningSurface,
         colorScheme: theme.mode
     };
 }
